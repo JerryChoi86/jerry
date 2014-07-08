@@ -14,7 +14,7 @@ Hope that these are helpful for people who are interested in economics and pytho
 
 
 
-Personal INFO
+Personal Info
 ----
 Jeonghun Choi (Jerry Choi)
 
