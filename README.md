@@ -10,6 +10,12 @@ Hope that these are helpful for people who are interested in economics and pytho
 
 
 
+
+
+
+
+Profile
+----
 Jeonghun Choi (Jerry Choi)
 
 3rd Ph.D Student
@@ -18,6 +24,7 @@ Economics Department
 
 Seoul National University
 
+Seoul, South Korea
 
 
 
