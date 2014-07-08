@@ -1,4 +1,7 @@
-jerry
+Jerry's Repository
 =====
 
-Jerry's repository
+Python Programs for Numerical Methods.
+
+All programs are for my own purpose of reviewing topics dealt in the SNU Macro classes especially given by Prof.Hong
+
