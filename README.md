@@ -1,4 +1,0 @@
-jerry
-=====
-
-Jerry's repository
