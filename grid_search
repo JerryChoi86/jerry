@@ -1,0 +1,64 @@
+from __future__ import division
+from numpy import linspace, zeros, empty
+from math import log
+from matplotlib.mlab import find
+from pylab import plot, show, legend
+import time
+
+start = time.time()
+
+## Parameters
+A, alpha, beta = 2.0, 0.3, 0.99 
+
+## The number of grid
+n_grid = 30
+
+## Tolerance
+tol = 1e-7
+
+## Grid
+k_min, k_max = 0.1, 0.9
+k_grid = linspace(k_min,k_max,n_grid)
+
+## Iteration Counter
+it=0
+
+## Convergence Flag|
+converged = 0
+iteration = 0
+
+## Initials 
+v_update = zeros(n_grid)
+v_func = empty(n_grid)
+
+
+def bellman_grid_search(k_current,grid,value_next) :
+    value_vec = empty(len(grid))
+    for i in range(len(grid)) :
+        k_next = grid[i]
+        value_vec[i] = log(A*k_current**(alpha) - k_next) + beta*value_next[i]
+    value = max(value_vec)
+    return value
+
+while converged == 0 :
+	k_index = 0
+	for k_state in k_grid :
+		v_func[k_index] = bellman_grid_search(k_state,k_grid,v_update)
+		k_index = k_index + 1
+	
+	dist = abs(max(v_func-v_update))
+	v_update = v_func
+	if dist<tol :
+		converged = 1
+		v_k = v_func
+
+	print "Iteration : ",iteration,"","Distance : ",dist
+	iteration = iteration + 1
+	v_func = empty(n_grid)
+
+end = time.time() 
+print "Total Running Time: ", end-start,"Sec"
+
+plot(k_grid,v_k,'*',label='Value Function')
+legend()
+show()
