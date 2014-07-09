@@ -107,16 +107,22 @@ app_err = v_true-v_k
 #-----Figures
 #-----
 
+#----- True and Approximated Value Function
 plot(k_grid,v_k,'*',label='Value Function')
 plot(k_grid,v_true,label = 'True Value Function')
 legend()
 show()
 
+#----- True and Approximated Policy Function
 plot(k_grid,g_k,'o',label='Policy Function')
 plot(k_grid,g_true,label='True Policy Function')
 legend()
 show()
 
+#----- Approximation Error : Difference between True and Approximated Value Function
 plot(k_grid,app_err,label='Approximation Error')
 legend()
 show()
+
+
+
