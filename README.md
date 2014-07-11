@@ -3,7 +3,9 @@ Jerry's Repository
 
 Python Programs for Numerical Methods.
 
-All programs are for my own purpose of reviewing topics dealt in the SNU Macro classes especially given by Prof.Hong
+All programs are made for my own purpose of reviewing topics dealt in the SNU Macro classes given by Prof.Hong
+
+and of learning how to coding using python.
 
 
 Hope that these are helpful for people who are interested in economics and python.
