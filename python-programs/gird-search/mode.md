@@ -12,3 +12,6 @@ Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block
 $$ 
 c_{t}
 $$
+$$
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
+$$
