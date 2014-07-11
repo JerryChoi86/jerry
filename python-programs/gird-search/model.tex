@@ -1,0 +1,51 @@
+\documentclass[11pt,a4paper]{article} % 문서종류의 설정
+
+\linespread{1.3} % 행간길이
+\addtolength{\voffset}{-2cm} % 머릿말여백
+\addtolength{\hoffset}{-2cm} % 좌측여백
+\addtolength{\textwidth}{4cm} % 본문길이
+\addtolength{\textheight}{4cm} % 본문높이
+
+\usepackage{kotex} %kotex 사용
+\usepackage{amssymb} % 수식 사용
+\usepackage[english]{babel}
+\usepackage{amsmath} %수식 시리즈
+\usepackage{amsfonts} %수식 시리즈
+\usepackage{amssymb} %수식 시리즈
+\usepackage{graphicx} %includegraphics
+\usepackage{mathrsfs} %수식 중 특수문자
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage[all]{xy} %xy-pic
+
+\begin{document} % 문서의 시작
+\title{제목을입력하시오}
+\author{최정훈}
+\maketitle
+\begin{abstract}
+내용을 입력하시오
+\end{abstract}
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{서론}
+서론내용+subsections
+\newpage
+
+\section{본론}
+본론내용 + subsections
+\newpage
+
+\section{결론}
+결론내용
+\newpage
+
+\begin{thebibliography}{99} % Reference 시작
+\bibitem{pa} 저자, 제목,저널,연도,(페이지)  %working paper면 기관 Working paper 라고 쓸것, 페이지 수 적으려면 연도에는 괄호를 칠것
+% Reference 종료
+
+\end{thebibliography}
+
+\end{document} % 문서 끝
