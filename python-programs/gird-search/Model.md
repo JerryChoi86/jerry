@@ -1,1 +1,0 @@
-PLUGINS = ["render_math"]
