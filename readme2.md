@@ -1,3 +1,5 @@
+<script type="text/javascript" src="https://stackedit.io/libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+
 Welcome to StackEdit!	{#welcome}
 =====================
 
