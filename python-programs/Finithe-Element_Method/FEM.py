@@ -36,6 +36,16 @@ k_grid = linspace(k_min,k_max,n_grid)
     
 
 def VFI(method) :
+    """
+    This Function implements value function iteration 
+    using three different interpolation method ; linear, spline, cubic.
+    
+    Input : method (1=linear, 2=spline, 3=cubic)
+    
+    Output : v_k (value function)
+             g_k (policy function : saving function)
+             runtime (total runnning time)
+    """
 #----- Iteration Counter
     iteration=0
 
@@ -48,8 +58,21 @@ def VFI(method) :
     k_next_vec = empty(n_grid)
     
     def obj(k_next) :
+        """
+        This function is used in value function iteration.
+        It represents the objective function to be maximized for one node (state) of current capitals.
+        Resulting value is maximized one corresponding to next period's capital as a maximizer. 
+        Next period's value is computed by interpolation.
+        
+        Input : k_next (next period's capital)
+        
+        Output : value_vec (maximized value resulting from choosing optimal capital in the next period)
+        """
         
         def interpolation(method,x,y,xi) :
+            """
+            This function implements interpolation
+            """
             if method==1 :
                 f = interp1d(x,y,kind='linear')
                 yi = f(xi)
@@ -63,9 +86,10 @@ def VFI(method) :
             
         value_vec = -1 * (log(A*k_current**(alpha) - k_next) + beta*interpolation(method,k_grid,v_update,k_next))
         return value_vec
-    
+
+#----- Value function iteration
     while converged==0 :
-        start = time.time()
+        start = time.time() # start time
         index = 0
         for k_current in k_grid :
             k_next = fminbound(obj,k_grid[0],k_grid[-1])
@@ -77,13 +101,13 @@ def VFI(method) :
             converged = 1
             v_k, g_k = v_func, k_next_vec
         v_update = v_func
-        print "Iteration : ",iteration,"","Distance : ",dist
+        print "Iteration : ",iteration,"","Distance : ",dist    # convergence process
         iteration = iteration + 1
         v_func = empty(n_grid)  
         k_next_vec = empty(n_grid)
     
-    end = time.time()
-    run_time = end-start
+    end = time.time()   # end time
+    run_time = end-start    # total running time
         
     return v_k, g_k, run_time
 
@@ -135,6 +159,8 @@ app_cubic = abs(v_true-v_cubic)
 #-----
 #-----Figures
 #-----
+
+#----- Value Functions
 plot(k_grid,v_linear,'b*',label='Value Function (linear)')
 plot(k_grid,v_true,'r',label = 'True Value Function')
 title('Total Running Time :'+str(runtime_linear[0])+'mm'+str(round(100*runtime_linear[1]))+'ss')
@@ -159,7 +185,7 @@ title('Total Running Time :'+str(runtime_linear[0])+'mm'+str(round(100*runtime_l
 legend()
 show()
 
-
+#----- Policy Functions
 plot(k_grid,g_spline,'g+',label='Policy Function (spline)')
 plot(k_grid,g_true,'r',label='True Policy Function')
 title('Total Running Time :'+str(runtime_spline[0])+'mm'+str(round(100*runtime_spline[1]))+'ss')
@@ -177,6 +203,7 @@ title('Total Running Time :'+str(runtime_linear[0])+'mm'+str(round(100*runtime_l
 legend()
 show()
 
+#----- Approximation Error
 plot(k_grid,app_spline,'g',label='Approximation Error (spline)')
 title('Total Running Time :'+str(runtime_spline[0])+'mm'+str(round(100*runtime_spline[1]))+'ss')
 legend()
