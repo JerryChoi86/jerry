@@ -2,4 +2,4 @@
 
 
 ##### 1. QE_q_2.ipynb 
-  * 기본 Jupyter 명령어들
+ * 기본 Jupyter 명령어들 : %%file, cat, run, pwd(), ls
